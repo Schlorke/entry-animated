@@ -1,2 +1,3 @@
 export { Header } from "./features";
-export type { HeaderProps, NavItem } from "./features";
+export { HEADER_CSS_VARIABLES } from "./features";
+export type { HeaderCssVariable, HeaderNavItem, HeaderProps } from "./features";

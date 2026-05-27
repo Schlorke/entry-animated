@@ -3,13 +3,17 @@ import styles from "../styles/header.module.css";
 
 type HeaderBackgroundProps = {
   imageSrc: string;
+  imageAlt: string;
 };
 
-export function HeaderBackground({ imageSrc }: HeaderBackgroundProps) {
+export function HeaderBackground({
+  imageSrc,
+  imageAlt,
+}: HeaderBackgroundProps) {
   return (
     <Image
       src={imageSrc}
-      alt=""
+      alt={imageAlt}
       fill
       priority
       sizes="100vw"

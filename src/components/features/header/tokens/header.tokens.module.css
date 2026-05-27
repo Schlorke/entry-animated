@@ -1,0 +1,46 @@
+.headerTokens {
+  /* Primitive tokens */
+  --header-primitive-color-black: #000000;
+  --header-primitive-color-neutral-800: #262626;
+  --header-primitive-color-white: #ffffff;
+  --header-primitive-space-2: 0.5rem;
+  --header-primitive-space-3: 0.75rem;
+  --header-primitive-space-4: 1rem;
+  --header-primitive-space-5: 1.25rem;
+  --header-primitive-size-touch-target: 44px;
+  --header-primitive-radius-xs: 2px;
+  --header-primitive-transition-slow: 1s;
+  --header-primitive-transition-fast: 0.3s;
+  --header-primitive-ease-standard: ease;
+
+  /* Semantic tokens */
+  --header-color-surface: var(--header-primitive-color-black);
+  --header-color-surface-elevated: var(--header-primitive-color-neutral-800);
+  --header-color-text-inverse: var(--header-primitive-color-white);
+  --header-color-text-on-light: var(--header-primitive-color-neutral-800);
+  --header-focus-color: var(--header-color-text-inverse);
+  --header-transition-duration-slow: var(--header-primitive-transition-slow);
+  --header-transition-duration-fast: var(--header-primitive-transition-fast);
+  --header-transition-ease: var(--header-primitive-ease-standard);
+
+  /* Component tokens */
+  --header-height-collapsed: 90px;
+  --header-z-index: 1000;
+  --header-logo-width-expanded: 500px;
+  --header-logo-width-collapsed: 150px;
+  --header-logo-width-mobile: min(280px, 80vw);
+  --header-logo-width-mobile-collapsed: 110px;
+  --header-brand-expanded-y-offset: 170px;
+  --header-brand-expanded-x-offset: 260px;
+  --header-brand-collapsed-inline-start: 35px;
+  --header-nav-inline-end: 200px;
+  --header-menu-bar-width: 28px;
+  --header-menu-bar-height: 3px;
+  --header-menu-bar-gap: 6px;
+  --header-menu-bar-transform-offset: 9px;
+  --header-mobile-menu-offset: 12px;
+  --header-nav-link-padding-block: 10px;
+  --header-nav-link-padding-inline: 15px;
+  --header-nav-link-mobile-padding-block: 14px;
+  --header-nav-link-mobile-padding-inline: 20px;
+}

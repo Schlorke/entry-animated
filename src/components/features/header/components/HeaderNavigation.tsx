@@ -2,35 +2,39 @@ import Link from "next/link";
 import { cn } from "@/lib";
 
 import styles from "../styles/header.module.css";
-import type { NavItem } from "../types";
+import type { HeaderNavItem } from "../types";
 
-type HeaderNavProps = {
-  navItems: NavItem[];
+type HeaderNavigationProps = {
+  id: string;
+  ariaLabel: string;
+  navItems: readonly HeaderNavItem[];
   isVisible: boolean;
   isMenuOpen: boolean;
   onNavItemClick: () => void;
 };
 
-export function HeaderNav({
+export function HeaderNavigation({
+  id,
+  ariaLabel,
   navItems,
   isVisible,
   isMenuOpen,
   onNavItemClick,
-}: HeaderNavProps) {
+}: HeaderNavigationProps) {
   return (
-    <nav id="header-nav" className={styles.nav} aria-label="Navegação principal">
+    <nav id={id} className={styles.navigation} aria-label={ariaLabel}>
       <ul
         className={cn(
-          styles.navList,
-          isVisible && styles.navListVisible,
-          isMenuOpen && styles.navListOpen,
+          styles.navigationList,
+          isVisible && styles.navigationListVisible,
+          isMenuOpen && styles.navigationListOpen,
         )}
       >
         {navItems.map((item) => (
           <li key={item.label}>
             <Link
               href={item.href}
-              className={styles.navLink}
+              className={styles.navigationLink}
               onClick={onNavItemClick}
             >
               {item.label}

@@ -1,27 +1,27 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 
 import { useBodyScrollLock } from "@/hooks";
 
-export function useMobileMenu(scrolled: boolean) {
-  const [menuOpen, setMenuOpen] = useState(false);
+export function useMobileMenu(isHeaderCollapsed: boolean) {
+  const [menuRequestedOpen, setMenuRequestedOpen] = useState(false);
+  const isMenuOpen = isHeaderCollapsed && menuRequestedOpen;
 
-  useEffect(() => {
-    if (!scrolled) {
-      setMenuOpen(false);
-    }
-  }, [scrolled]);
-
-  useBodyScrollLock(menuOpen);
+  useBodyScrollLock(isMenuOpen);
 
   const toggleMenu = useCallback(() => {
-    setMenuOpen((open) => !open);
-  }, []);
+    if (!isHeaderCollapsed) {
+      setMenuRequestedOpen(false);
+      return;
+    }
+
+    setMenuRequestedOpen((open) => !open);
+  }, [isHeaderCollapsed]);
 
   const closeMenu = useCallback(() => {
-    setMenuOpen(false);
+    setMenuRequestedOpen(false);
   }, []);
 
-  return { menuOpen, toggleMenu, closeMenu };
+  return { isMenuOpen, toggleMenu, closeMenu };
 }

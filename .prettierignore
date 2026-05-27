@@ -1,0 +1,12 @@
+node_modules
+.claude
+.cursor
+.vscode
+.next
+dist
+out
+coverage
+*.tsbuildinfo
+next-env.d.ts
+pnpm-lock.yaml
+public

@@ -1,15 +1,4 @@
 .header {
-  --header-height-collapsed: 90px;
-  --header-z-index: 1000;
-  --header-logo-width-expanded: 500px;
-  --header-logo-width-collapsed: 150px;
-  --header-logo-width-mobile: min(280px, 80vw);
-  --header-logo-width-mobile-collapsed: 110px;
-  --header-nav-offset-desktop: 200px;
-  --menu-bar-width: 28px;
-  --menu-bar-height: 3px;
-  --menu-bar-gap: 6px;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -17,8 +6,9 @@
   height: 100vh;
   width: 100%;
   padding: 0;
-  background-color: var(--color-surface);
-  transition: height var(--transition-duration-slow);
+  background-color: var(--header-color-surface);
+  transition: height var(--header-transition-duration-slow)
+    var(--header-transition-ease);
 }
 
 .scrolled {
@@ -33,180 +23,190 @@
   height: 100%;
   width: 100%;
   z-index: 0;
-  transition: opacity var(--transition-duration-slow);
+  transition: opacity var(--header-transition-duration-slow)
+    var(--header-transition-ease);
 }
 
 .scrolled .backgroundImage {
   opacity: 0;
 }
 
-.logo {
+.brand {
   position: absolute;
-  top: calc(50% - 170px);
-  left: calc(50% - 260px);
+  top: calc(50% - var(--header-brand-expanded-y-offset));
+  left: calc(50% - var(--header-brand-expanded-x-offset));
   z-index: 2;
-  transition: var(--transition-duration-slow);
+  transition:
+    top var(--header-transition-duration-slow) var(--header-transition-ease),
+    left var(--header-transition-duration-slow) var(--header-transition-ease),
+    transform var(--header-transition-duration-slow)
+      var(--header-transition-ease);
 }
 
-.scrolled .logo {
+.scrolled .brand {
   position: relative;
   top: 0;
-  left: 35px;
+  left: var(--header-brand-collapsed-inline-start);
 }
 
-.logoImage {
+.brandImage {
   width: var(--header-logo-width-expanded);
   height: auto;
-  transition: width var(--transition-duration-slow);
+  transition: width var(--header-transition-duration-slow)
+    var(--header-transition-ease);
 }
 
-.scrolled .logoImage {
+.scrolled .brandImage {
   width: var(--header-logo-width-collapsed);
 }
 
-.menuToggle {
+.menuButton {
   display: none;
   position: absolute;
   top: 50%;
-  right: var(--spacing-5);
+  right: var(--header-primitive-space-5);
   z-index: 3;
   transform: translateY(-50%);
   flex-direction: column;
   justify-content: center;
-  gap: var(--menu-bar-gap);
-  width: var(--touch-target-min);
-  height: var(--touch-target-min);
+  gap: var(--header-menu-bar-gap);
+  width: var(--header-primitive-size-touch-target);
+  height: var(--header-primitive-size-touch-target);
   padding: 0;
   border: none;
   background: transparent;
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-duration-fast) var(--transition-ease),
-    visibility var(--transition-duration-fast) var(--transition-ease);
+  transition:
+    opacity var(--header-transition-duration-fast) var(--header-transition-ease),
+    visibility var(--header-transition-duration-fast)
+      var(--header-transition-ease);
 }
 
-.menuToggleVisible {
+.menuButtonVisible {
   opacity: 1;
   visibility: visible;
 }
 
-.menuToggle:focus-visible {
-  outline: 2px solid var(--color-text-inverse);
+.menuButton:focus-visible {
+  outline: 2px solid var(--header-focus-color);
   outline-offset: 2px;
 }
 
-.menuBar {
+.menuButtonBar {
   display: block;
-  width: var(--menu-bar-width);
-  height: var(--menu-bar-height);
+  width: var(--header-menu-bar-width);
+  height: var(--header-menu-bar-height);
   margin: 0 auto;
-  background-color: var(--color-text-inverse);
-  border-radius: 2px;
-  transition: transform var(--transition-duration-fast) var(--transition-ease),
-    opacity var(--transition-duration-fast) var(--transition-ease);
+  background-color: var(--header-color-text-inverse);
+  border-radius: var(--header-primitive-radius-xs);
+  transition:
+    transform var(--header-transition-duration-fast)
+      var(--header-transition-ease),
+    opacity var(--header-transition-duration-fast) var(--header-transition-ease);
 }
 
-.menuToggleOpen .menuBar:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
+.menuButtonOpen .menuButtonBar:nth-child(1) {
+  transform: translateY(var(--header-menu-bar-transform-offset)) rotate(45deg);
 }
 
-.menuToggleOpen .menuBar:nth-child(2) {
+.menuButtonOpen .menuButtonBar:nth-child(2) {
   opacity: 0;
 }
 
-.menuToggleOpen .menuBar:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
+.menuButtonOpen .menuButtonBar:nth-child(3) {
+  transform: translateY(calc(var(--header-menu-bar-transform-offset) * -1))
+    rotate(-45deg);
 }
 
-.nav {
-  margin-right: var(--header-nav-offset-desktop);
-  position: relative;
-  float: right;
+.navigation {
+  position: absolute;
+  top: 0;
+  right: var(--header-nav-inline-end);
   z-index: 2;
-}
-
-.scrolled .nav {
   height: var(--header-height-collapsed);
   display: flex;
   align-items: center;
 }
 
-.navList {
+.navigationList {
   margin: 0;
   padding: 0;
   display: flex;
   list-style: none;
-  transition: opacity var(--transition-duration-slow),
-    visibility var(--transition-duration-slow),
-    transform var(--transition-duration-slow);
+  transition:
+    opacity var(--header-transition-duration-slow) var(--header-transition-ease),
+    visibility var(--header-transition-duration-slow)
+      var(--header-transition-ease),
+    transform var(--header-transition-duration-slow)
+      var(--header-transition-ease);
   opacity: 0;
   visibility: hidden;
   transform: translateX(100px);
 }
 
-.navListVisible {
+.navigationListVisible {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
 }
 
-.navList li {
+.navigationList li {
   list-style: none;
 }
 
-.navLink {
-  color: var(--color-text-inverse);
-  padding: 10px 15px;
+.navigationLink {
+  color: var(--header-color-text-inverse);
+  padding: var(--header-nav-link-padding-block)
+    var(--header-nav-link-padding-inline);
   text-decoration: none;
-  transition: background var(--transition-duration-fast) var(--transition-ease),
-    color var(--transition-duration-fast) var(--transition-ease);
+  transition:
+    background var(--header-transition-duration-fast)
+      var(--header-transition-ease),
+    color var(--header-transition-duration-fast) var(--header-transition-ease);
 }
 
-.navLink:hover {
-  background: var(--color-text-inverse);
-  color: var(--color-text-on-light);
+.navigationLink:hover {
+  background: var(--header-color-text-inverse);
+  color: var(--header-color-text-on-light);
 }
 
-.navLink:focus-visible {
-  outline: 2px solid var(--color-text-inverse);
+.navigationLink:focus-visible {
+  outline: 2px solid var(--header-focus-color);
   outline-offset: 2px;
 }
 
 @media (max-width: 768px) {
-  .logo {
+  .brand {
     left: 50%;
     transform: translateX(-50%);
   }
 
-  .scrolled .logo {
+  .scrolled .brand {
     left: 0;
     transform: none;
   }
 
-  .logoImage {
+  .brandImage {
     width: var(--header-logo-width-mobile);
   }
 
-  .scrolled .logoImage {
+  .scrolled .brandImage {
     width: var(--header-logo-width-mobile-collapsed);
   }
 
-  .menuToggle {
+  .menuButton {
     display: flex;
   }
 
-  .scrolled .nav {
+  .navigation {
+    position: static;
     height: auto;
     display: block;
   }
 
-  .nav {
-    margin-right: 0;
-    float: none;
-  }
-
-  .navList {
+  .navigationList {
     position: fixed;
     top: var(--header-height-collapsed);
     left: 0;
@@ -214,35 +214,30 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: var(--spacing-2) 0;
-    background-color: var(--color-surface-elevated);
-    transform: translateY(-12px);
+    padding: var(--header-primitive-space-2) 0;
+    background-color: var(--header-color-surface-elevated);
+    transform: translateY(calc(var(--header-mobile-menu-offset) * -1));
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
   }
 
-  .navListVisible {
-    transform: translateY(-12px);
+  .navigationListVisible {
+    transform: translateY(calc(var(--header-mobile-menu-offset) * -1));
     opacity: 0;
     visibility: hidden;
   }
 
-  .navListOpen {
+  .navigationListOpen {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
   }
 
-  .navLink {
+  .navigationLink {
     display: block;
-    padding: 14px 20px;
-  }
-}
-
-@media (min-width: 769px) {
-  .menuToggle {
-    display: none !important;
+    padding: var(--header-nav-link-mobile-padding-block)
+      var(--header-nav-link-mobile-padding-inline);
   }
 }

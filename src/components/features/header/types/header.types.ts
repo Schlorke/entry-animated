@@ -1,12 +1,16 @@
-export type NavItem = {
+export type HeaderNavItem = {
   label: string;
   href: string;
 };
 
 export type HeaderProps = {
   logoHref?: string;
-  backgroundImageSrc?: string;
   logoImageSrc?: string;
-  navItems?: NavItem[];
+  logoAlt?: string;
+  backgroundImageSrc?: string;
+  backgroundAlt?: string;
+  navItems?: readonly HeaderNavItem[];
   scrollDelayMs?: number;
+  className?: string;
+  navigationAriaLabel?: string;
 };

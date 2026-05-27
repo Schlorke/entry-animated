@@ -1,17 +1,22 @@
-import type { NavItem } from "../types";
+import type { HeaderNavItem } from "../types";
 
-export const DEFAULT_NAV_ITEMS: NavItem[] = [
-  { label: "Início", href: "#" },
-  { label: "Sobre", href: "#" },
-  { label: "Serviços", href: "#" },
-  { label: "Portfólio", href: "#" },
-  { label: "Time", href: "#" },
-  { label: "Contato", href: "#" },
-];
+export const HEADER_NAVIGATION_ID = "header-navigation";
+
+export const DEFAULT_HEADER_NAV_ITEMS = [
+  { label: "Início", href: "/#inicio" },
+  { label: "Sobre", href: "/#sobre" },
+  { label: "Serviços", href: "/#servicos" },
+  { label: "Portfólio", href: "/#portfolio" },
+  { label: "Time", href: "/#time" },
+  { label: "Contato", href: "/#contato" },
+] as const satisfies readonly HeaderNavItem[];
 
 export const HEADER_DEFAULTS = {
   logoHref: "/",
   backgroundImageSrc: "/img/law.jpg",
+  backgroundAlt: "",
   logoImageSrc: "/img/Logo.png",
+  logoAlt: "Logo",
   scrollDelayMs: 1500,
+  navigationAriaLabel: "Navegação principal",
 } as const;
