@@ -32,10 +32,13 @@
 }
 
 .brand {
+  display: block;
   position: absolute;
-  top: calc(50% - var(--header-brand-expanded-y-offset));
-  left: calc(50% - var(--header-brand-expanded-x-offset));
+  top: 50%;
+  left: 50%;
   z-index: 2;
+  line-height: 0;
+  transform: translate(-50%, -50%);
   transition:
     top var(--header-transition-duration-slow) var(--header-transition-ease),
     left var(--header-transition-duration-slow) var(--header-transition-ease),
@@ -44,12 +47,13 @@
 }
 
 .scrolled .brand {
-  position: relative;
   top: 0;
   left: var(--header-brand-collapsed-inline-start);
+  transform: none;
 }
 
 .brandImage {
+  display: block;
   width: var(--header-logo-width-expanded);
   height: auto;
   transition: width var(--header-transition-duration-slow)
@@ -178,14 +182,8 @@
 }
 
 @media (max-width: 768px) {
-  .brand {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
   .scrolled .brand {
     left: 0;
-    transform: none;
   }
 
   .brandImage {

@@ -2,6 +2,14 @@
 
 Reusable animated header component built with Next.js, React, TypeScript, CSS Modules, and local design tokens.
 
+## Documentation
+
+- [AI agent instructions](./AGENTS.md)
+- [Documentation index](./docs/README.md)
+- [Architecture overview](./docs/architecture.md)
+- [Header API and tokens](./docs/header-reference.md)
+- [Development workflow](./docs/development.md)
+
 ## Usage
 
 ```tsx

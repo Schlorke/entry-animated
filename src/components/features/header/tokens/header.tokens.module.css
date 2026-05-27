@@ -30,8 +30,6 @@
   --header-logo-width-collapsed: 150px;
   --header-logo-width-mobile: min(280px, 80vw);
   --header-logo-width-mobile-collapsed: 110px;
-  --header-brand-expanded-y-offset: 170px;
-  --header-brand-expanded-x-offset: 260px;
   --header-brand-collapsed-inline-start: 35px;
   --header-nav-inline-end: 200px;
   --header-menu-bar-width: 28px;

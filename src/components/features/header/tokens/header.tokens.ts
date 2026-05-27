@@ -10,8 +10,6 @@ export const HEADER_CSS_VARIABLES = {
   logoWidthCollapsed: "--header-logo-width-collapsed",
   logoWidthMobile: "--header-logo-width-mobile",
   logoWidthMobileCollapsed: "--header-logo-width-mobile-collapsed",
-  brandExpandedYOffset: "--header-brand-expanded-y-offset",
-  brandExpandedXOffset: "--header-brand-expanded-x-offset",
   brandCollapsedInlineStart: "--header-brand-collapsed-inline-start",
   navInlineEnd: "--header-nav-inline-end",
   menuBarWidth: "--header-menu-bar-width",
