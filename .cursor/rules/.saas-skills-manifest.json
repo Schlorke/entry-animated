@@ -1,0 +1,32 @@
+{
+  "library": "context-window/saas-skills",
+  "version": "1.11.0",
+  "runtime": "cursor-project",
+  "installScope": "project",
+  "installedAt": "2026-05-27T19:16:50.441Z",
+  "sourceRepoRoot": "C:\\Projetos\\Context_Window",
+  "targetRoot": "C:\\Projetos\\Entry Animated",
+  "skillCount": 18,
+  "artifacts": [
+    "skill-ai-context-diagrams.mdc",
+    "skill-ai-interface-design.mdc",
+    "skill-context-window-optimization.mdc",
+    "skill-multi-agent-skill-installer.mdc",
+    "skill-prompt-engineering-hybrid.mdc",
+    "skill-saas-ai-agent-engineer.mdc",
+    "skill-api-design-patterns.mdc",
+    "skill-clean-architecture-ddd.mdc",
+    "skill-prisma-database-design.mdc",
+    "skill-intelligent-project-docs.mdc",
+    "skill-technical-research-writing.mdc",
+    "skill-legacy-code-refactoring.mdc",
+    "skill-systems-analysis-saas.mdc",
+    "skill-testing-strategies.mdc",
+    "skill-component-reuse-portability.mdc",
+    "skill-design-system-implementation.mdc",
+    "skill-react-saas-architecture.mdc",
+    "skill-saas-ui-specifications.mdc"
+  ],
+  "generatedBy": "scripts/install-agent-runtimes.mjs",
+  "updatePolicy": "Edit saas-skills/ and rerun sync. Do not edit runtime copies directly."
+}

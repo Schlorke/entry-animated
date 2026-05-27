@@ -1,0 +1,32 @@
+:root {
+  --color-surface: #000000;
+  --color-surface-elevated: #262626;
+  --color-text-inverse: #ffffff;
+  --color-text-on-light: #262626;
+
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+
+  --touch-target-min: 44px;
+
+  --transition-duration-slow: 1s;
+  --transition-duration-fast: 0.3s;
+  --transition-ease: ease;
+
+  --font-family-base: sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-family-base);
+}

@@ -1,0 +1,32 @@
+{
+  "library": "context-window/saas-skills",
+  "version": "1.11.0",
+  "runtime": "claude-project",
+  "installScope": "project",
+  "installedAt": "2026-05-27T19:16:50.433Z",
+  "sourceRepoRoot": "C:\\Projetos\\Context_Window",
+  "targetRoot": "C:\\Projetos\\Entry Animated",
+  "skillCount": 18,
+  "artifacts": [
+    "ai-context-diagrams",
+    "ai-interface-design",
+    "context-window-optimization",
+    "multi-agent-skill-installer",
+    "prompt-engineering-hybrid",
+    "saas-ai-agent-engineer",
+    "api-design-patterns",
+    "clean-architecture-ddd",
+    "prisma-database-design",
+    "intelligent-project-docs",
+    "technical-research-writing",
+    "legacy-code-refactoring",
+    "systems-analysis-saas",
+    "testing-strategies",
+    "component-reuse-portability",
+    "design-system-implementation",
+    "react-saas-architecture",
+    "saas-ui-specifications"
+  ],
+  "generatedBy": "scripts/install-agent-runtimes.mjs",
+  "updatePolicy": "Edit saas-skills/ and rerun sync. Do not edit runtime copies directly."
+}
