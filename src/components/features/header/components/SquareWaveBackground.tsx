@@ -135,8 +135,8 @@ const FRAGMENT_SHADER_SOURCE = `
     vec2 pointer = (uPointer - 0.5) * 2.0;
     uv.y -= 0.08;
 
-    vec3 rayOrigin = vec3(-2.95 + pointer.x * 0.34, 4.15 + pointer.y * 0.1, 3.62);
-    vec3 target = vec3(-0.4 + pointer.x * 0.14, -0.62, -0.28);
+    vec3 rayOrigin = vec3(-3.0 + pointer.x * 0.34, 4.08 + pointer.y * 0.1, 3.7);
+    vec3 target = vec3(-0.42 + pointer.x * 0.14, -0.6, -0.29);
 
     vec3 forward = normalize(target - rayOrigin);
     vec3 right = normalize(cross(vec3(0.0, 1.0, 0.0), forward));
