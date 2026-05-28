@@ -87,32 +87,35 @@
 .topBar {
   position: absolute;
   top: 0;
-  left: 0;
+  inset-inline: 0;
   z-index: 4;
+  display: grid;
+  place-items: center;
   width: 100%;
-  min-height: var(--header-height-top-bar);
+  height: var(--header-height-top-bar);
   color: var(--header-color-text-inverse);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-100%);
+  pointer-events: none;
   transition:
-    opacity var(--header-transition-duration-fast) var(--header-transition-ease),
-    visibility var(--header-transition-duration-fast)
-      var(--header-transition-ease),
-    transform var(--header-transition-duration-slow)
+    opacity var(--header-transition-duration-slow) var(--header-transition-ease),
+    visibility var(--header-transition-duration-slow)
       var(--header-transition-ease);
+  transition-delay: 0s;
 }
 
 .scrolled .topBar {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  pointer-events: auto;
+  transition-delay: var(--header-reveal-delay);
 }
 
 .topBarText {
-  max-width: var(--header-content-max-width);
-  margin: 0 auto;
-  padding: 0.58rem var(--header-primitive-space-4);
+  width: min(100%, var(--header-content-max-width));
+  box-sizing: border-box;
+  margin: 0;
+  padding-inline: var(--header-primitive-space-4);
   color: var(--header-color-top-bar-text);
   font-size: 0.9rem;
   font-weight: 300;
@@ -380,21 +383,23 @@
     justify-content: center;
     background: transparent;
     box-shadow: none;
-    transform: translate(-50%, -50%) translateX(100px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
     transition:
       opacity var(--header-transition-duration-slow)
         var(--header-transition-ease),
       visibility var(--header-transition-duration-slow)
-        var(--header-transition-ease),
-      transform var(--header-transition-duration-slow)
         var(--header-transition-ease);
+    transition-delay: 0s;
   }
 
   .navigationVisible {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translate(-50%, -50%) translateX(0);
+    transition-delay: var(--header-reveal-delay);
   }
 
   .navigationList {

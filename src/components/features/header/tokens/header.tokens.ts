@@ -39,6 +39,8 @@ export const HEADER_CSS_VARIABLES = {
   transitionDurationSlow: "--header-transition-duration-slow",
   transitionDurationFast: "--header-transition-duration-fast",
   transitionEase: "--header-transition-ease",
+  revealDelay: "--header-reveal-delay",
+  navRevealDelay: "--header-nav-reveal-delay",
 } as const;
 
 export type HeaderCssVariable =

@@ -46,6 +46,8 @@
   --header-transition-duration-slow: var(--header-primitive-transition-slow);
   --header-transition-duration-fast: var(--header-primitive-transition-fast);
   --header-transition-ease: var(--header-primitive-ease-standard);
+  --header-reveal-delay: var(--header-transition-duration-slow);
+  --header-nav-reveal-delay: var(--header-reveal-delay);
 
   /* Component tokens */
   --header-z-index: 30;
