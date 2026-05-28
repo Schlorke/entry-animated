@@ -160,29 +160,29 @@ const FRAGMENT_SHADER_SOURCE = `
       float diffuse = max(dot(normal, lightDirection), 0.0);
       float overheadDiffuse = max(dot(normal, overheadDirection), 0.0);
       float shadow = softShadow(position + normal * 0.025, lightDirection);
-      float specular = pow(max(dot(normal, halfVector), 0.0), 48.0);
-      float overheadSpecular = pow(max(dot(normal, overheadHalfVector), 0.0), 32.0);
+      float specular = pow(max(dot(normal, halfVector), 0.0), 42.0);
+      float overheadSpecular = pow(max(dot(normal, overheadHalfVector), 0.0), 26.0);
       float rim = pow(1.0 - max(dot(normal, -rayDirection), 0.0), 2.35);
       float topLight = smoothstep(-0.2, 0.92, normal.y);
       vec2 overheadOffset = (position.xz - vec2(-1.28, -0.68)) * vec2(0.2, 0.16);
       float overheadPool = exp(-dot(overheadOffset, overheadOffset));
       float topBeam = overheadPool * topLight * overheadDiffuse;
-      float broadReflection = pow(max(dot(normal, overheadHalfVector), 0.0), 14.0) * topLight;
-      float edgeGlint = pow(1.0 - abs(normal.y), 2.35) * (0.78 + topLight * 0.42);
+      float broadReflection = pow(max(dot(normal, overheadHalfVector), 0.0), 10.0) * topLight;
+      float edgeGlint = pow(1.0 - abs(normal.y), 2.15) * (0.86 + topLight * 0.5);
 
       vec3 base = mix(
         vec3(0.153, 0.212, 0.514),
         vec3(0.184, 0.345, 0.643),
-        clamp(topLight + topBeam * 0.34, 0.0, 1.0)
+        clamp(topLight + topBeam * 0.46, 0.0, 1.0)
       );
       color = base;
       color += diffuse * shadow * vec3(0.04, 0.1, 0.2);
-      color += topBeam * vec3(0.16, 0.3, 0.48);
-      color += broadReflection * overheadPool * vec3(0.1, 0.18, 0.3);
-      color += specular * vec3(0.36, 0.5, 0.72);
-      color += overheadSpecular * overheadPool * vec3(0.52, 0.68, 0.86);
+      color += topBeam * vec3(0.22, 0.4, 0.62);
+      color += broadReflection * overheadPool * vec3(0.16, 0.28, 0.44);
+      color += specular * vec3(0.48, 0.64, 0.86);
+      color += overheadSpecular * overheadPool * vec3(0.68, 0.82, 0.98);
       color += rim * vec3(0.04, 0.12, 0.26);
-      color += edgeGlint * vec3(0.08, 0.2, 0.36);
+      color += edgeGlint * vec3(0.1, 0.24, 0.42);
     }
 
     float vignette = smoothstep(1.58, 0.18, length(uv - vec2(-0.05, 0.02)));
