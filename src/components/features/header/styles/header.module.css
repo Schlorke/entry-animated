@@ -39,6 +39,26 @@
     var(--header-transition-ease);
 }
 
+.backgroundEffect {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #fff;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity var(--header-transition-duration-slow)
+    var(--header-transition-ease);
+}
+
+.squareWaveCanvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .header::before,
 .header::after {
   position: absolute;
@@ -75,11 +95,16 @@
   opacity: 1;
 }
 
+.header[data-background="square-wave"]::after {
+  background: none;
+}
+
 .scrolled::before {
   opacity: 1;
 }
 
 .scrolled .backgroundImage,
+.scrolled .backgroundEffect,
 .scrolled::after {
   opacity: 0;
 }
@@ -205,11 +230,15 @@
   filter: var(--header-shadow-logo);
   transition:
     width var(--header-transition-duration-slow) var(--header-transition-ease),
+    max-height var(--header-transition-duration-slow)
+      var(--header-transition-ease),
     filter var(--header-transition-duration-slow) var(--header-transition-ease);
 }
 
 .scrolled .brandImage {
-  width: var(--header-logo-width-collapsed);
+  width: var(--header-logo-width-collapsed-mobile);
+  height: auto;
+  max-height: var(--header-logo-height-collapsed-mobile);
   filter: none;
 }
 
@@ -338,9 +367,10 @@
   padding: var(--header-nav-link-mobile-padding-block)
     var(--header-nav-link-mobile-padding-inline);
   color: var(--header-color-text);
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.2;
+  font-family: var(--header-nav-link-font-family);
+  font-size: var(--header-nav-link-font-size);
+  font-weight: var(--header-nav-link-font-weight);
+  line-height: var(--header-nav-link-line-height);
   text-decoration: none;
   white-space: nowrap;
   transition:
@@ -364,6 +394,11 @@
 
   .inner {
     padding-inline: var(--header-primitive-space-6);
+  }
+
+  .scrolled .brandImage {
+    width: var(--header-logo-width-collapsed);
+    max-height: var(--header-logo-height-collapsed);
   }
 }
 
@@ -417,7 +452,6 @@
     padding: var(--header-nav-link-padding-block)
       var(--header-nav-link-padding-inline);
     align-items: center;
-    font-size: 0.92rem;
     background-color: transparent;
   }
 
@@ -452,9 +486,5 @@
 @media (min-width: 1200px) {
   .navigationList {
     gap: var(--header-nav-gap-wide);
-  }
-
-  .navigationLink {
-    font-size: 0.96rem;
   }
 }

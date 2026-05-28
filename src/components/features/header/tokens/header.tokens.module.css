@@ -16,7 +16,7 @@
   --header-primitive-radius-xs: 2px;
   --header-primitive-radius-sm: 4px;
   --header-primitive-radius-md: 12px;
-  --header-primitive-transition-slow: 1s;
+  --header-primitive-transition-slow: 1.25s;
   --header-primitive-transition-fast: 200ms;
   --header-primitive-ease-standard: ease;
 
@@ -52,15 +52,17 @@
   /* Component tokens */
   --header-z-index: 30;
   --header-height-top-bar: 44px;
-  --header-height-main-bar: 78px;
+  --header-height-main-bar: 64px;
   --header-height-collapsed: calc(
     var(--header-height-top-bar) + var(--header-height-main-bar)
   );
   --header-content-max-width: 80rem;
   --header-logo-width-expanded: min(620px, 82vw);
-  --header-logo-width-collapsed: 132px;
+  --header-logo-width-collapsed: 85px;
+  --header-logo-width-collapsed-mobile: 77px;
+  --header-logo-height-collapsed: 2.75rem;
+  --header-logo-height-collapsed-mobile: 2.5rem;
   --header-logo-width-mobile: min(620px, 82vw);
-  --header-logo-width-mobile-collapsed: 100px;
   --header-logo-collapsed-scale: 1;
   --header-brand-collapsed-inline-start: 1rem;
   --header-nav-gap: 1.45rem;
@@ -75,6 +77,11 @@
   --header-nav-link-padding-inline: 0;
   --header-nav-link-mobile-padding-block: 0.85rem;
   --header-nav-link-mobile-padding-inline: 1rem;
+  --header-nav-link-font-family:
+    var(--header-font-roboto), system-ui, arial, sans-serif;
+  --header-nav-link-font-size: 1rem;
+  --header-nav-link-font-weight: 500;
+  --header-nav-link-line-height: 1.5;
 }
 
 @media (min-width: 640px) {

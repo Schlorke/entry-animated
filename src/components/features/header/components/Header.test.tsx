@@ -26,9 +26,17 @@ describe("Header", () => {
     const logo = screen.getByRole("img", { name: /ok gás engenharia/i });
     expect(logo.tagName.toLowerCase()).toBe("svg");
     expect(logo.querySelector("#ok-shine-layer")).toBeInTheDocument();
-    expect(
-      container.querySelector('img[src="/img/okgas-header-background.jpg"]'),
-    ).toHaveAttribute("alt", "");
+    const background = container.querySelector(
+      '[data-background-engine="webgl"]',
+    );
+
+    expect(background).toHaveAttribute("aria-hidden", "true");
+    expect(background).toHaveAttribute("data-background-engine", "webgl");
+    expect(background?.querySelector("canvas")).toBeInTheDocument();
+    expect(container.querySelector("header")).toHaveAttribute(
+      "data-background",
+      "square-wave",
+    );
     expect(
       screen.getByText(
         /projetos, instalações e manutenções de sistemas de gás/i,
@@ -44,6 +52,23 @@ describe("Header", () => {
         item.href,
       );
     }
+  });
+
+  it("renders a supplied decorative background image", () => {
+    const { container } = render(
+      <Header
+        navItems={navItems}
+        backgroundImageSrc="/img/okgas-header-background.jpg"
+      />,
+    );
+
+    expect(
+      container.querySelector('img[src="/img/okgas-header-background.jpg"]'),
+    ).toHaveAttribute("alt", "");
+    expect(container.querySelector("header")).toHaveAttribute(
+      "data-background",
+      "image",
+    );
   });
 
   it("applies collapsed state after the configured delay", () => {

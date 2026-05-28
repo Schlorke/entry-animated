@@ -27,6 +27,13 @@ vi.mock("next/link", () => ({
   }) => React.createElement("a", { href, ...props }, children),
 }));
 
+vi.mock("next/font/google", () => ({
+  Roboto: () => ({
+    variable: "--header-font-roboto",
+    className: "mock-header-font-roboto",
+  }),
+}));
+
 afterEach(() => {
   cleanup();
   document.body.style.overflow = "";

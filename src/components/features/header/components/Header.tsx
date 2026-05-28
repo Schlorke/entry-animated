@@ -1,5 +1,7 @@
 "use client";
 
+import { Roboto } from "next/font/google";
+
 import { cn } from "@/lib";
 
 import {
@@ -16,6 +18,13 @@ import { HeaderBackground } from "./HeaderBackground";
 import { HeaderBrand } from "./HeaderBrand";
 import { HeaderMenuButton } from "./HeaderMenuButton";
 import { HeaderNavigation } from "./HeaderNavigation";
+
+const headerNavFont = Roboto({
+  subsets: ["latin"],
+  weight: ["500"],
+  variable: "--header-font-roboto",
+  display: "swap",
+});
 
 export function Header({
   logoHref = HEADER_DEFAULTS.logoHref,
@@ -34,11 +43,13 @@ export function Header({
   return (
     <header
       className={cn(
+        headerNavFont.variable,
         tokenStyles.headerTokens,
         styles.header,
         scrolled && styles.scrolled,
         className,
       )}
+      data-background={backgroundImageSrc.trim() ? "image" : "square-wave"}
       data-state={scrolled ? "collapsed" : "expanded"}
     >
       <HeaderBackground

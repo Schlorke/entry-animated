@@ -11,6 +11,10 @@ export type HeaderProps = {
    */
   logoImageSrc?: string;
   logoAlt?: string;
+  /**
+   * Empty string renders the built-in decorative square-wave canvas background.
+   * Passing a URL renders that image as the decorative background instead.
+   */
   backgroundImageSrc?: string;
   backgroundAlt?: string;
   navItems?: readonly HeaderNavItem[];

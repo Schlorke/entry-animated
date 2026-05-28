@@ -15,10 +15,10 @@ export const DEFAULT_HEADER_NAV_ITEMS = [
 
 export const HEADER_DEFAULTS = {
   logoHref: "/#inicio",
-  backgroundImageSrc: "/img/okgas-header-background.jpg",
+  backgroundImageSrc: "",
   backgroundAlt: "",
   logoImageSrc: "/img/okgas-logo-abreviado.png",
   logoAlt: "OK Gás Engenharia",
-  scrollDelayMs: 1800,
+  scrollDelayMs: 6000,
   navigationAriaLabel: "Navegação principal",
 } as const;

@@ -55,9 +55,9 @@ export type HeaderProps = {
 - `logoHref`: `/#inicio`
 - `logoImageSrc`: deprecated compatibility prop; the default brand renders the inline `OkGasLogoSvg`
 - `logoAlt`: `OK Gás Engenharia`
-- `backgroundImageSrc`: `/img/okgas-header-background.jpg`
+- `backgroundImageSrc`: empty string; renders the built-in decorative square-wave canvas background. Passing a URL replaces it with a decorative image asset.
 - `backgroundAlt`: empty string, treating the background as decorative
-- `scrollDelayMs`: `1800`
+- `scrollDelayMs`: `6000`
 - `navigationAriaLabel`: `Navegação principal`
 
 Default navigation items point to real hash sections such as `/#inicio`, `/#solucoes`, and `/#orcamento`; do not use `href="#"` for reusable defaults.
@@ -78,7 +78,7 @@ export default function Page() {
     <Header
       logoAlt="OK Gás Engenharia"
       navItems={navItems}
-      scrollDelayMs={1800}
+      scrollDelayMs={6000}
     />
   );
 }
@@ -93,7 +93,10 @@ Consumers can override supported CSS variables through `className`:
   --header-color-brand: #0047ac;
   --header-color-accent: #ffcd00;
   --header-height-main-bar: 82px;
-  --header-logo-width-collapsed: 132px;
+  --header-logo-width-collapsed: 85px;
+  --header-logo-width-collapsed-mobile: 77px;
+  --header-logo-height-collapsed: 2.75rem;
+  --header-logo-height-collapsed-mobile: 2.5rem;
   --header-logo-collapsed-scale: 1;
 }
 ```
@@ -108,6 +111,7 @@ Use `HEADER_CSS_VARIABLES` when code needs a typed map of supported variable nam
 
 - The logo MUST have meaningful `logoAlt` text.
 - The default brand is an inline SVG with a real masked shine layer, not a PNG or base64 image.
-- The background SHOULD use `backgroundAlt=""` when decorative.
+- The default square-wave canvas background is decorative and hidden from assistive technology.
+- Image backgrounds SHOULD use `backgroundAlt=""` when decorative.
 - Navigation MUST expose an accessible label through `navigationAriaLabel`.
 - The mobile menu button controls the navigation through `aria-controls` and exposes state through `aria-expanded`.

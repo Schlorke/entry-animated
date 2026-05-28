@@ -19,9 +19,7 @@ export default function Page() {
   return (
     <Header
       logoHref="/#inicio"
-      logoImageSrc="/img/okgas-logo-abreviado.png"
-      logoAlt="Ok Gás"
-      backgroundImageSrc="/img/okgas-header-background.jpg"
+      logoAlt="OK Gás Engenharia"
       navItems={[
         { label: "Início", href: "/#inicio" },
         { label: "Soluções", href: "/#solucoes" },
@@ -65,7 +63,10 @@ Consumers can override CSS variables through `className`:
   --header-color-brand: #0047ac;
   --header-color-accent: #ffcd00;
   --header-height-main-bar: 82px;
-  --header-logo-width-collapsed: 132px;
+  --header-logo-width-collapsed: 85px;
+  --header-logo-width-collapsed-mobile: 77px;
+  --header-logo-height-collapsed: 2.75rem;
+  --header-logo-height-collapsed-mobile: 2.5rem;
   --header-logo-collapsed-scale: 1;
 }
 ```
@@ -73,6 +74,10 @@ Consumers can override CSS variables through `className`:
 ```tsx
 <Header className={styles.customHeader} />
 ```
+
+By default, the intro renders a decorative square-wave canvas background. Pass
+`backgroundImageSrc` only when a consumer needs to replace it with a decorative
+image asset.
 
 ## Quality Commands
 
