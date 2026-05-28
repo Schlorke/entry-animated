@@ -5,6 +5,10 @@ export type HeaderNavItem = {
 
 export type HeaderProps = {
   logoHref?: string;
+  /**
+   * @deprecated The default brand renders an inline OK Gás SVG. This prop is
+   * kept for source compatibility with earlier consumers.
+   */
   logoImageSrc?: string;
   logoAlt?: string;
   backgroundImageSrc?: string;

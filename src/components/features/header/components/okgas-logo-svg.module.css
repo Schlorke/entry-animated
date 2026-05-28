@@ -1,0 +1,50 @@
+.logo {
+  --ok-logo-shine-duration: 6.2s;
+  --ok-logo-shine-opacity: 0.38;
+  --ok-logo-shine-angle: 28deg;
+  --ok-logo-shine-delay: 0s;
+  --ok-logo-glow-intensity: 0.18;
+
+  display: block;
+  overflow: visible;
+}
+
+.shineLayer {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform, opacity;
+  animation: ok-logo-shine var(--ok-logo-shine-duration) ease-in-out
+    var(--ok-logo-shine-delay) infinite both;
+}
+
+@keyframes ok-logo-shine {
+  0% {
+    opacity: var(--ok-logo-shine-opacity);
+    transform: translate(-1120px, -84px) rotate(var(--ok-logo-shine-angle));
+  }
+
+  6%,
+  31% {
+    opacity: var(--ok-logo-shine-opacity);
+  }
+
+  54% {
+    opacity: 0;
+    transform: translate(1480px, -84px) rotate(var(--ok-logo-shine-angle));
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(1480px, -84px) rotate(var(--ok-logo-shine-angle));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shineLayer {
+    opacity: 0;
+    animation: none;
+    transform: translate(0, 0) rotate(var(--ok-logo-shine-angle));
+    will-change: auto;
+  }
+}

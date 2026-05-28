@@ -65,7 +65,8 @@ Consumers can override CSS variables through `className`:
   --header-color-brand: #0047ac;
   --header-color-accent: #ffcd00;
   --header-height-main-bar: 82px;
-  --header-logo-collapsed-scale: 0.24;
+  --header-logo-width-collapsed: 132px;
+  --header-logo-collapsed-scale: 1;
 }
 ```
 

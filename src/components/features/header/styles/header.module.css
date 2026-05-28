@@ -203,11 +203,13 @@
   max-height: min(18rem, 38vh);
   object-fit: contain;
   filter: var(--header-shadow-logo);
-  transition: filter var(--header-transition-duration-slow)
-    var(--header-transition-ease);
+  transition:
+    width var(--header-transition-duration-slow) var(--header-transition-ease),
+    filter var(--header-transition-duration-slow) var(--header-transition-ease);
 }
 
 .scrolled .brandImage {
+  width: var(--header-logo-width-collapsed);
   filter: none;
 }
 

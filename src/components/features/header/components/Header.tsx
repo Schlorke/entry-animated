@@ -19,7 +19,7 @@ import { HeaderNavigation } from "./HeaderNavigation";
 
 export function Header({
   logoHref = HEADER_DEFAULTS.logoHref,
-  logoImageSrc = HEADER_DEFAULTS.logoImageSrc,
+  logoImageSrc: _logoImageSrc = HEADER_DEFAULTS.logoImageSrc,
   logoAlt = HEADER_DEFAULTS.logoAlt,
   backgroundImageSrc = HEADER_DEFAULTS.backgroundImageSrc,
   backgroundAlt = HEADER_DEFAULTS.backgroundAlt,
@@ -50,12 +50,7 @@ export function Header({
       </div>
       <div className={styles.mainBar}>
         <div className={styles.inner}>
-          <HeaderBrand
-            href={logoHref}
-            imageSrc={logoImageSrc}
-            imageAlt={logoAlt}
-            onClick={closeMenu}
-          />
+          <HeaderBrand href={logoHref} imageAlt={logoAlt} onClick={closeMenu} />
           <HeaderNavigation
             id={HEADER_NAVIGATION_ID}
             ariaLabel={navigationAriaLabel}

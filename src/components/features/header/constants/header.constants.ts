@@ -18,7 +18,7 @@ export const HEADER_DEFAULTS = {
   backgroundImageSrc: "/img/okgas-header-background.jpg",
   backgroundAlt: "",
   logoImageSrc: "/img/okgas-logo-abreviado.png",
-  logoAlt: "Ok Gás",
-  scrollDelayMs: 1500,
+  logoAlt: "OK Gás Engenharia",
+  scrollDelayMs: 1800,
   navigationAriaLabel: "Navegação principal",
 } as const;

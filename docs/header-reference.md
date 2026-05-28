@@ -35,6 +35,10 @@ export type HeaderNavItem = {
 
 export type HeaderProps = {
   logoHref?: string;
+  /**
+   * @deprecated The default OK Gás brand now renders as an inline SVG.
+   * This prop is kept for source compatibility with earlier consumers.
+   */
   logoImageSrc?: string;
   logoAlt?: string;
   backgroundImageSrc?: string;
@@ -49,11 +53,11 @@ export type HeaderProps = {
 ## Defaults
 
 - `logoHref`: `/#inicio`
-- `logoImageSrc`: `/img/okgas-logo-abreviado.png`
-- `logoAlt`: `Ok Gás`
+- `logoImageSrc`: deprecated compatibility prop; the default brand renders the inline `OkGasLogoSvg`
+- `logoAlt`: `OK Gás Engenharia`
 - `backgroundImageSrc`: `/img/okgas-header-background.jpg`
 - `backgroundAlt`: empty string, treating the background as decorative
-- `scrollDelayMs`: `1500`
+- `scrollDelayMs`: `1800`
 - `navigationAriaLabel`: `Navegação principal`
 
 Default navigation items point to real hash sections such as `/#inicio`, `/#solucoes`, and `/#orcamento`; do not use `href="#"` for reusable defaults.
@@ -70,7 +74,13 @@ const navItems = [
 ] as const;
 
 export default function Page() {
-  return <Header logoAlt="Ok Gás" navItems={navItems} scrollDelayMs={1500} />;
+  return (
+    <Header
+      logoAlt="OK Gás Engenharia"
+      navItems={navItems}
+      scrollDelayMs={1800}
+    />
+  );
 }
 ```
 
@@ -83,7 +93,8 @@ Consumers can override supported CSS variables through `className`:
   --header-color-brand: #0047ac;
   --header-color-accent: #ffcd00;
   --header-height-main-bar: 82px;
-  --header-logo-collapsed-scale: 0.24;
+  --header-logo-width-collapsed: 132px;
+  --header-logo-collapsed-scale: 1;
 }
 ```
 
@@ -96,6 +107,7 @@ Use `HEADER_CSS_VARIABLES` when code needs a typed map of supported variable nam
 ## Accessibility Contract
 
 - The logo MUST have meaningful `logoAlt` text.
+- The default brand is an inline SVG with a real masked shine layer, not a PNG or base64 image.
 - The background SHOULD use `backgroundAlt=""` when decorative.
 - Navigation MUST expose an accessible label through `navigationAriaLabel`.
 - The mobile menu button controls the navigation through `aria-controls` and exposes state through `aria-expanded`.

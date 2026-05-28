@@ -23,10 +23,9 @@ describe("Header", () => {
       "href",
       "/#inicio",
     );
-    expect(screen.getByRole("img", { name: /ok gás/i })).toHaveAttribute(
-      "src",
-      "/img/okgas-logo-abreviado.png",
-    );
+    const logo = screen.getByRole("img", { name: /ok gás engenharia/i });
+    expect(logo.tagName.toLowerCase()).toBe("svg");
+    expect(logo.querySelector("#ok-shine-layer")).toBeInTheDocument();
     expect(
       container.querySelector('img[src="/img/okgas-header-background.jpg"]'),
     ).toHaveAttribute("alt", "");
