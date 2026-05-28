@@ -25,6 +25,7 @@ export function HeaderMenuButton({
       aria-expanded={isOpen}
       aria-controls={controlsId}
       aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+      disabled={!isVisible}
       onClick={onToggle}
     >
       <span className={styles.menuButtonBar} />

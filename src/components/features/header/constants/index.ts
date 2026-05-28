@@ -2,4 +2,5 @@ export {
   DEFAULT_HEADER_NAV_ITEMS,
   HEADER_DEFAULTS,
   HEADER_NAVIGATION_ID,
+  HEADER_TOP_BAR_TEXT,
 } from "./header.constants";

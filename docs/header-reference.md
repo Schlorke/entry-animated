@@ -48,15 +48,15 @@ export type HeaderProps = {
 
 ## Defaults
 
-- `logoHref`: `/`
-- `logoImageSrc`: `/img/Logo.png`
-- `logoAlt`: `Logo`
-- `backgroundImageSrc`: `/img/law.jpg`
+- `logoHref`: `/#inicio`
+- `logoImageSrc`: `/img/okgas-logo-abreviado.png`
+- `logoAlt`: `Ok Gás`
+- `backgroundImageSrc`: `/img/okgas-header-background.jpg`
 - `backgroundAlt`: empty string, treating the background as decorative
 - `scrollDelayMs`: `1500`
 - `navigationAriaLabel`: `Navegação principal`
 
-Default navigation items point to real hash sections such as `/#inicio`; do not use `href="#"` for reusable defaults.
+Default navigation items point to real hash sections such as `/#inicio`, `/#solucoes`, and `/#orcamento`; do not use `href="#"` for reusable defaults.
 
 ## Basic Usage
 
@@ -70,13 +70,7 @@ const navItems = [
 ] as const;
 
 export default function Page() {
-  return (
-    <Header
-      logoAlt="Di Primio Advocacia"
-      navItems={navItems}
-      scrollDelayMs={1500}
-    />
-  );
+  return <Header logoAlt="Ok Gás" navItems={navItems} scrollDelayMs={1500} />;
 }
 ```
 
@@ -86,9 +80,10 @@ Consumers can override supported CSS variables through `className`:
 
 ```css
 .customHeader {
-  --header-height-collapsed: 96px;
-  --header-color-surface: #050505;
-  --header-logo-width-collapsed: 160px;
+  --header-color-brand: #0047ac;
+  --header-color-accent: #ffcd00;
+  --header-height-main-bar: 82px;
+  --header-logo-collapsed-scale: 0.24;
 }
 ```
 

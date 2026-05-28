@@ -1,27 +1,40 @@
 import { act, fireEvent, render, screen } from "@testing-library/react";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { Header } from "./Header";
 
 const navItems = [
   { label: "Início", href: "/#inicio" },
+  { label: "Soluções", href: "/#solucoes" },
   { label: "Sobre", href: "/#sobre" },
+  { label: "Solicitar orçamento", href: "/#orcamento" },
   { label: "Contato", href: "/#contato" },
 ];
 
 describe("Header", () => {
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   it("renders brand, background, and navigation items", () => {
     const { container } = render(<Header navItems={navItems} />);
 
-    expect(screen.getByRole("link", { name: /logo/i })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: /ok gás/i })).toHaveAttribute(
       "href",
-      "/",
+      "/#inicio",
     );
-    expect(screen.getByRole("img", { name: /logo/i })).toBeInTheDocument();
-    expect(container.querySelector('img[src="/img/law.jpg"]')).toHaveAttribute(
-      "alt",
-      "",
+    expect(screen.getByRole("img", { name: /ok gás/i })).toHaveAttribute(
+      "src",
+      "/img/okgas-logo-abreviado.png",
     );
+    expect(
+      container.querySelector('img[src="/img/okgas-header-background.jpg"]'),
+    ).toHaveAttribute("alt", "");
+    expect(
+      screen.getByText(
+        /projetos, instalações e manutenções de sistemas de gás/i,
+      ),
+    ).toBeInTheDocument();
     expect(
       screen.getByRole("navigation", { name: /navegação principal/i }),
     ).toBeInTheDocument();
@@ -62,6 +75,7 @@ describe("Header", () => {
 
     const menuButton = screen.getByRole("button", { name: /abrir menu/i });
     expect(menuButton).toHaveAttribute("aria-expanded", "false");
+    expect(menuButton).not.toBeDisabled();
 
     fireEvent.click(menuButton);
 

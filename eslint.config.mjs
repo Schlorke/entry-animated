@@ -1,14 +1,9 @@
-import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
+import nextTypescript from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
 
 export default tseslint.config(
   {
@@ -22,7 +17,9 @@ export default tseslint.config(
       "next-env.d.ts",
     ],
   },
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  js.configs.recommended,
+  ...nextCoreWebVitals,
+  ...nextTypescript,
   {
     files: ["**/*.{js,mjs,cjs}"],
     languageOptions: {

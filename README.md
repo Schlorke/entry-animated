@@ -18,13 +18,15 @@ import { Header } from "@/index";
 export default function Page() {
   return (
     <Header
-      logoHref="/"
-      logoImageSrc="/img/Logo.png"
-      logoAlt="Di Primio Advocacia"
-      backgroundImageSrc="/img/law.jpg"
+      logoHref="/#inicio"
+      logoImageSrc="/img/okgas-logo-abreviado.png"
+      logoAlt="Ok Gás"
+      backgroundImageSrc="/img/okgas-header-background.jpg"
       navItems={[
         { label: "Início", href: "/#inicio" },
+        { label: "Soluções", href: "/#solucoes" },
         { label: "Sobre", href: "/#sobre" },
+        { label: "Solicitar orçamento", href: "/#orcamento" },
         { label: "Contato", href: "/#contato" },
       ]}
     />
@@ -60,9 +62,10 @@ Consumers can override CSS variables through `className`:
 
 ```css
 .customHeader {
-  --header-height-collapsed: 96px;
-  --header-color-surface: #050505;
-  --header-logo-width-collapsed: 160px;
+  --header-color-brand: #0047ac;
+  --header-color-accent: #ffcd00;
+  --header-height-main-bar: 82px;
+  --header-logo-collapsed-scale: 0.24;
 }
 ```
 

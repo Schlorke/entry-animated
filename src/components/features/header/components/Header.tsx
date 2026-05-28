@@ -6,6 +6,7 @@ import {
   DEFAULT_HEADER_NAV_ITEMS,
   HEADER_DEFAULTS,
   HEADER_NAVIGATION_ID,
+  HEADER_TOP_BAR_TEXT,
 } from "../constants";
 import { useHeaderScroll, useMobileMenu } from "../hooks";
 import styles from "../styles/header.module.css";
@@ -44,21 +45,33 @@ export function Header({
         imageSrc={backgroundImageSrc}
         imageAlt={backgroundAlt}
       />
-      <HeaderBrand href={logoHref} imageSrc={logoImageSrc} imageAlt={logoAlt} />
-      <HeaderMenuButton
-        controlsId={HEADER_NAVIGATION_ID}
-        isVisible={scrolled}
-        isOpen={isMenuOpen}
-        onToggle={toggleMenu}
-      />
-      <HeaderNavigation
-        id={HEADER_NAVIGATION_ID}
-        ariaLabel={navigationAriaLabel}
-        navItems={navItems}
-        isVisible={scrolled}
-        isMenuOpen={isMenuOpen}
-        onNavItemClick={closeMenu}
-      />
+      <div className={styles.topBar}>
+        <p className={styles.topBarText}>{HEADER_TOP_BAR_TEXT}</p>
+      </div>
+      <div className={styles.mainBar}>
+        <div className={styles.inner}>
+          <HeaderBrand
+            href={logoHref}
+            imageSrc={logoImageSrc}
+            imageAlt={logoAlt}
+            onClick={closeMenu}
+          />
+          <HeaderNavigation
+            id={HEADER_NAVIGATION_ID}
+            ariaLabel={navigationAriaLabel}
+            navItems={navItems}
+            isVisible={scrolled}
+            isMenuOpen={isMenuOpen}
+            onNavItemClick={closeMenu}
+          />
+          <HeaderMenuButton
+            controlsId={HEADER_NAVIGATION_ID}
+            isVisible={scrolled}
+            isOpen={isMenuOpen}
+            onToggle={toggleMenu}
+          />
+        </div>
+      </div>
     </header>
   );
 }

@@ -7,16 +7,23 @@ type HeaderBrandProps = {
   href: string;
   imageSrc: string;
   imageAlt: string;
+  onClick?: () => void;
 };
 
-export function HeaderBrand({ href, imageSrc, imageAlt }: HeaderBrandProps) {
+export function HeaderBrand({
+  href,
+  imageSrc,
+  imageAlt,
+  onClick,
+}: HeaderBrandProps) {
   return (
-    <Link href={href} className={styles.brand}>
+    <Link href={href} className={styles.brand} onClick={onClick}>
       <Image
         src={imageSrc}
         alt={imageAlt}
-        width={500}
-        height={200}
+        width={180}
+        height={120}
+        sizes="(max-width: 640px) 100px, 130px"
         priority
         className={styles.brandImage}
       />

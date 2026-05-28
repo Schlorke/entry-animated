@@ -22,14 +22,16 @@ export function HeaderNavigation({
   onNavItemClick,
 }: HeaderNavigationProps) {
   return (
-    <nav id={id} className={styles.navigation} aria-label={ariaLabel}>
-      <ul
-        className={cn(
-          styles.navigationList,
-          isVisible && styles.navigationListVisible,
-          isMenuOpen && styles.navigationListOpen,
-        )}
-      >
+    <nav
+      id={id}
+      className={cn(
+        styles.navigation,
+        isVisible && styles.navigationVisible,
+        isMenuOpen && styles.navigationOpen,
+      )}
+      aria-label={ariaLabel}
+    >
+      <ul className={styles.navigationList}>
         {navItems.map((item) => (
           <li key={item.label}>
             <Link
